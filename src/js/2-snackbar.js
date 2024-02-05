@@ -10,7 +10,7 @@ function createPromise(e) {
     e.preventDefault();
 
     const delay = inputElem.value;
-    const promiseStatus = formElem.elements.statu.value;
+    const promiseStatus = formElem.elements.state.value;
 
     const promise = new Promise((resolve, reject) => {
         if (promiseStatus === 'fulfilled') {

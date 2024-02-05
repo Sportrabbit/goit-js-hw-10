@@ -13,7 +13,7 @@ const minutesElem = document.querySelector('[data-minutes]');
 const secondsElem = document.querySelector('[data-seconds]');
 
 let timer = {
-    intervalid: null,
+    intervaLId: null,
     isActive: false,
     differenceInTime: 0,
     userSelectedDate: null,
@@ -45,7 +45,7 @@ let timer = {
         }
 
         this.isActive = true;
-        this.intervalid = setInterval(() => {
+        this.intervaLId = setInterval(() => {
             const currentTime = Date.now();
             this.differenceInTime = startTime - currentTime;
             if (this.differenceInTime <= 0) {
@@ -66,7 +66,7 @@ let timer = {
     },
 
     reset() {
-        clearInterval(this.intervalid);
+        clearInterval(this.intervaLId);
         this.isActive = false;
         daysElem.textContent = '00';
         hoursElem.textContent = '00';
@@ -84,15 +84,14 @@ const options = {
     time_24hr: true,
     defaultDate: new Date(),
     minuteIncrement: 1,
-    onclose: selectedDates => {
+    onСlose: selectedDates => {
         const selectedDate = selectedDates[0];
         if (!timer.isActive) {
             timer.userSelectedDate = selectedDate;
             if (selectedDate < Date.now()) {
                 iziToast.show({
-                    iconUrl: imgIcon,
                     message: 'Please choose a date in the future',
-                    color: red,
+                    color: 'red',
                     position: "topRight",
                 });
                 buttonElem.classList.add('active-button');
